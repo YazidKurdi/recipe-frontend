@@ -1,0 +1,29 @@
+
+
+/* 
+.toast-border{
+    border: 2px solid #000000;
+    border-radius: 2px;
+    padding: 0px;
+    margin-bottom: 0px;
+} */
+
+.Toastify__toast {
+    border: 2px solid #000000;
+}
+
+
+.Toastify__toast-container {
+    width: 285px
+
+}
+
+.Toastify__toast-container--top-left {
+    left: 1em;
+    top: 0.5em;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--success {
+    background: var(--color-primary);
+    color: var(--toastify-text-color-success);
+}
