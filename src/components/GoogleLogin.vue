@@ -48,6 +48,7 @@ export default {
                                     const userId = response.data.user_id;
                                     // store userId in state management
                                     this.$store.commit('setId', userId)
+                                    localStorage.setItem("Id", userId)
                                 })
                                 .catch(error => {
                                     console.error(error);

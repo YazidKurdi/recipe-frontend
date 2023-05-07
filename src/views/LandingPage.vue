@@ -299,4 +299,12 @@ img {
 .col-md-5 {
   text-align: center;
 }
+
+.btn:hover {
+
+background-color: var(--bs-btn-bg);
+color: var(--bs-btn-color);
+box-shadow: 0 0 10px #000000;
+
+}
 </style>
