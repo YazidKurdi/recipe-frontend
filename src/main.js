@@ -17,8 +17,11 @@ import {faEnvelope,faUser,faPhone,faBuilding,faLock,faCalendar,faTag,faUtensils,
 library.add(faEnvelope,faUser,faPhone,faBuilding,faLock,faFacebookF,faTwitter,faGoogle,faCalendar,faTag,faUtensils,faShuffle)
 
 
+const endpoint = process.env.NODE_ENV === 'dev'
+  ? process.env.VUE_APP_DEV_BACKEND
+  : process.env.VUE_APP_PROD_BACKEND
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000/'
+axios.defaults.baseURL = endpoint
 
 const app = createApp(App)
 app.use(router)
