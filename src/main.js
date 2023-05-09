@@ -17,7 +17,7 @@ import {faEnvelope,faUser,faPhone,faBuilding,faLock,faCalendar,faTag,faUtensils,
 library.add(faEnvelope,faUser,faPhone,faBuilding,faLock,faFacebookF,faTwitter,faGoogle,faCalendar,faTag,faUtensils,faShuffle)
 
 
-const endpoint = process.env.NODE_ENV === 'dev'
+const endpoint = process.env.VUE_APP_NODE_ENV === 'dev'
   ? process.env.VUE_APP_DEV_BACKEND
   : process.env.VUE_APP_PROD_BACKEND
 
@@ -30,6 +30,5 @@ app.use(VueNumber)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')
 
-
-
+export default endpoint;
 
