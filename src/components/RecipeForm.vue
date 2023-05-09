@@ -143,6 +143,9 @@ export default {
             .then((response) => {
                 this.cuisinesList = response.data
             })
+            .catch((error)=>{
+                console.log(error)
+            })
     }
 }
 </script>
