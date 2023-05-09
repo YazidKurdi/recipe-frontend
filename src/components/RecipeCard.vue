@@ -1,7 +1,7 @@
 <template>
     <article class="postcard light red" :class="{ 'expanded': isExpanded }">
         <a class="postcard__img_link" href="#">
-            <img class="postcard__img" :src="'http://127.0.0.1:8000/' + recipe.thumbnail" alt="Image thumbnail" />
+            <img class="postcard__img" :src="endpoint + recipe.thumbnail" alt="Image thumbnail" />
         </a>
         <div class="postcard__text text-dark">
             <div class="d-flex align-items-center justify-content-between">
@@ -46,6 +46,7 @@
 import ModalPop from '../components/ModalPop.vue';
 import axios from 'axios';
 import toasts from '@/modules/toasts'
+import endpoint from '@/main.js'
 
 export default {
 
@@ -53,6 +54,7 @@ export default {
         return {
             clickCount: 0,
             isExpanded: false,
+            endpoint: endpoint,
         };
     },
     components: {

@@ -4,7 +4,7 @@
             <Slide v-for="slide in recipes" :key="slide.id">
                 <div :class="['carousel__item', { selected: slide.id === selectedSlideId }]" @click="handleClick(slide)">
                     <div class="card">
-                        <img :src="'http://127.0.0.1:8000/' + slide.thumbnail" class="card-img-top" alt="...">
+                        <img :src="endpoint + slide.thumbnail" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h6 class="card-title"> {{ slide.title }}</h6>
                         </div>
@@ -21,12 +21,13 @@
   
 <script>
 import { Carousel, Navigation, Slide } from 'vue3-carousel'
-
+import endpoint from '@/main.js'
 import 'vue3-carousel/dist/carousel.css'
 
 export default ({
 
     data: () => ({
+        endpoint: endpoint,
         selectedSlideId: null,
         // carousel settings
         settings: {
