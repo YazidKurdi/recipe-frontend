@@ -1,7 +1,7 @@
 <template>
     <article class="postcard light red" :class="{ 'expanded': isExpanded }">
         <a class="postcard__img_link" href="#">
-            <img class="postcard__img" :src="endpoint + recipe.thumbnail" alt="Image thumbnail" />
+            <img class="postcard__img" src="https://cuisines.fra1.cdn.digitaloceanspaces.com/american.jpg" alt="Image thumbnail" />
         </a>
         <div class="postcard__text text-dark">
             <div class="d-flex align-items-center justify-content-between">
