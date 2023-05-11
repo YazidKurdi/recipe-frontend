@@ -71,8 +71,8 @@ export default {
             axios
                 .delete(`/api/delete-recipe/${recipe.id}`)
                 .then(() => {
-                    toasts.toastSuccess("Recipe Deleted!")
                     this.$router.go(0)
+                    toasts.toastSuccess("Recipe Deleted!")
                 })
                 .catch(() => {
                     toasts.toastError("Whoops, something went wrong, try again later!")
@@ -210,7 +210,7 @@ i {
         flex-flow: row wrap;
         font-size: 14px;
         margin: 5px 0 0 0;
-        padding: 0;
+        padding: 5px 0 0 0;
         justify-content: center;
 
         .tag__item {
