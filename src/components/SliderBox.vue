@@ -1,10 +1,10 @@
 <template>
     <div class="container">
-        <Carousel :wrap-around="true" :breakpoints="breakpoints">
+        <Carousel :breakpoints="breakpoints">
             <Slide v-for="slide in recipes" :key="slide.id">
                 <div :class="['carousel__item', { selected: slide.id === selectedSlideId }]" @click="handleClick(slide)">
                     <div class="card">
-                        <img :src="endpoint + slide.thumbnail" class="card-img-top" alt="...">
+                        <img :src='"https://cuisines.fra1.cdn.digitaloceanspaces.com/" + slide.cuisine + ".jpg"' class="card-img-top" alt="...">
                         <div class="card-body">
                             <h6 class="card-title"> {{ slide.title }}</h6>
                         </div>
