@@ -31,7 +31,7 @@
                         <button type="submit.prevent" class="btn btn-block btn-recipe" @click="submitForm"> Log In
                         </button>
                     </div> <!-- form-group// -->
-                    <p class="text-center">Don't have an account? <router-link to="/login">Sign Up!</router-link></p>
+                    <p class="text-center">Don't have an account? <router-link to="/register">Sign Up!</router-link></p>
                 </form>
             </article>
         </div> <!-- card.// -->
