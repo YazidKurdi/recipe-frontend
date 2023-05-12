@@ -1,7 +1,8 @@
 <template>
     <article class="postcard light red" :class="{ 'expanded': isExpanded }">
         <a class="postcard__img_link" href="#">
-            <img class="postcard__img" :src='"https://cuisines.fra1.cdn.digitaloceanspaces.com/" + recipe.cuisine + ".jpg"' alt="Image thumbnail" />
+            <img class="postcard__img" :src='"https://cuisines.fra1.cdn.digitaloceanspaces.com/" + recipe.cuisine + ".jpg"'
+                alt="Image thumbnail" />
         </a>
         <div class="postcard__text text-dark">
             <div class="d-flex align-items-center justify-content-between">
@@ -34,8 +35,7 @@
             <ul class="postcard__tagbox">
                 <li class="tag__item"><i><font-awesome-icon icon="fas fa-tag" /></i> {{
                     recipe.cuisine }}</li>
-                <li v-if="recipe.ai_generated" class="tag__item"><i><font-awesome-icon
-                            icon="fas fa-utensils" /></i>ChefGPT
+                <li v-if="recipe.ai_generated" class="tag__item"><i><font-awesome-icon icon="fas fa-utensils" /></i>ChefGPT
                 </li>
             </ul>
         </div>
@@ -72,7 +72,7 @@ export default {
                 .delete(`/api/delete-recipe/${recipe.id}`)
                 .then(() => {
                     this.$router.go(0)
-                    toasts.toastSuccess("Recipe Deleted!")
+                    // toasts.toastSuccess("Recipe Deleted!")
                 })
                 .catch(() => {
                     toasts.toastError("Whoops, something went wrong, try again later!")
@@ -164,7 +164,7 @@ i {
         margin-bottom: 0.5rem;
         font-weight: 3;
         line-height: 1.2;
-        margin-right:5px;
+        margin-right: 5px;
     }
 
     .small {
@@ -327,7 +327,7 @@ i {
     background: $main-red;
 }
 
-.red:hover .card-btn:hover{
+.red:hover .card-btn:hover {
     color: $main-red;
 }
 
