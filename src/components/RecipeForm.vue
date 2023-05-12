@@ -16,8 +16,8 @@
                     <label for="cuisine" style="margin-right: 1rem;  line-height: 2.5;">Cuisine</label>
                     <select class="form-control" id="cuisine" v-model="recipeCuisine" required>
                         <option value="" disabled>Select cuisine</option>
-                        <option v-for="cuisine in spacesCuisines" :key="cuisine.id" :value="cuisine">
-                            {{ cuisine }}
+                        <option v-for="cuisine in cuisinesList" :key="cuisine.id" :value="cuisine.name">
+                            {{ cuisine.name }}
                         </option>
                     </select>
                 </div>
@@ -55,8 +55,6 @@
 import { reactive } from 'vue'
 import axios from 'axios'
 import toasts from '@/modules/toasts'
-import { ListObjectsCommand } from "@aws-sdk/client-s3";
-import { s3Client } from "@/s3Client.js";
 
 export default {
 
@@ -66,8 +64,7 @@ export default {
             ingredients: this.recipe.ingredients,
             recipeTitle: this.recipe.title,
             recipeDescription: this.recipe.description,
-            recipeCuisine: this.recipe.cuisine,
-            spacesCuisines: []
+            recipeCuisine: this.recipe.cuisine
         };
     },
     methods: {
@@ -120,18 +117,6 @@ export default {
                 this.ingredients.splice(index, 1)
 
             }
-        },
-        async getFileNames() {
-            const bucketParams = { Bucket: "cuisines" };
-            try {
-                const data = await s3Client.send(new ListObjectsCommand(bucketParams));
-                this.spacesCuisines = data.Contents.map((item) => {
-                    const fileName = item.Key;
-                    return fileName.substring(0, fileName.lastIndexOf("."));
-                })
-            } catch (err) {
-                console.log("Error", err);
-            }
         }
     },
     props: {
@@ -158,13 +143,10 @@ export default {
             .then((response) => {
                 this.cuisinesList = response.data
             })
-            .catch((error) => {
+            .catch((error)=>{
                 console.log(error)
             })
-    },
-    created() {
-        this.getFileNames();
-    },
+    }
 }
 </script>
   
