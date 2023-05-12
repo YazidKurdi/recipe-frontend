@@ -87,7 +87,7 @@ export default {
                 .post("/dj-rest-auth/registration/", formData)
                 .then(() => {
 
-                    this.$router.push('/login')
+                    this.$router.push('/register')
                     toasts.toastSuccess('Account created, please log in!')
                 })
                 .catch(error => {
