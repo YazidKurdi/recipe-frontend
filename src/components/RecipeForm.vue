@@ -42,6 +42,11 @@
                             <button type="button" class="btn bi bi-trash btn-sm btn-danger"
                                 @click="removeIngredient(index)"></button>
                         </div>
+                        <div>
+                            <ul>
+                                <li v-for="fileName in fileNames" :key="fileName">{{ fileName }}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-recipe mt-5" @click.prevent="submitRecipe">Submit Recipe!</button>
@@ -55,6 +60,8 @@
 import { reactive } from 'vue'
 import axios from 'axios'
 import toasts from '@/modules/toasts'
+import { ListObjectsCommand } from "@aws-sdk/client-s3";
+import { s3Client } from "@/s3Client.js";
 
 export default {
 
@@ -64,7 +71,8 @@ export default {
             ingredients: this.recipe.ingredients,
             recipeTitle: this.recipe.title,
             recipeDescription: this.recipe.description,
-            recipeCuisine: this.recipe.cuisine
+            recipeCuisine: this.recipe.cuisine,
+            fileNames: []
         };
     },
     methods: {
@@ -117,6 +125,16 @@ export default {
                 this.ingredients.splice(index, 1)
 
             }
+        },
+        async getFileNames() {
+            const bucketParams = { Bucket: "cuisines" };
+            try {
+                const data = await s3Client.send(new ListObjectsCommand(bucketParams));
+                console.log("Success", data);
+                return data;
+            } catch (err) {
+                console.log("Error", err);
+            }
         }
     },
     props: {
@@ -143,10 +161,13 @@ export default {
             .then((response) => {
                 this.cuisinesList = response.data
             })
-            .catch((error)=>{
+            .catch((error) => {
                 console.log(error)
             })
-    }
+    },
+    created() {
+        this.getFileNames();
+    },
 }
 </script>
   
