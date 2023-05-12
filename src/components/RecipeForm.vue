@@ -17,7 +17,7 @@
                     <select class="form-control" id="cuisine" v-model="recipeCuisine" required>
                         <option value="" disabled>Select cuisine</option>
                         <option v-for="cuisine in spacesCuisines" :key="cuisine.id" :value="cuisine">
-                            {{ cuisine.replace('.jpg', '') }}
+                            {{ cuisine }}
                         </option>
                     </select>
                 </div>
@@ -125,7 +125,10 @@ export default {
             const bucketParams = { Bucket: "cuisines" };
             try {
                 const data = await s3Client.send(new ListObjectsCommand(bucketParams));
-                this.spacesCuisines = data.Contents.map((item) => item.Key);
+                this.spacesCuisines = data.Contents.map((item) => {
+                    const fileName = item.Key;
+                    return fileName.substring(0, fileName.lastIndexOf("."));
+                })
             } catch (err) {
                 console.log("Error", err);
             }
