@@ -64,7 +64,8 @@ export default {
             ingredients: this.recipe.ingredients,
             recipeTitle: this.recipe.title,
             recipeDescription: this.recipe.description,
-            recipeCuisine: this.recipe.cuisine
+            recipeCuisine: this.recipe.cuisine,
+            recipeChefGPT: this.recipe.ai_generated
         };
     },
     methods: {
@@ -74,7 +75,8 @@ export default {
                 description: this.recipeDescription,
                 ingredients: this.recipe.ingredients,
                 author: this.$store.state.id,
-                cuisine: this.recipeCuisine
+                cuisine: this.recipeCuisine,
+                ai_generated: this.recipeChefGPT
             }
             if (!this.createUpdateRecipe) {
                 this.createRecipe(formData)
