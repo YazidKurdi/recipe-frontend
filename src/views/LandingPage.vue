@@ -88,7 +88,7 @@
           <div class="stats-item text-center w-100 h-100">
             <span>
               <number class="bold transition" ref="number1" :from="0" animationPaused :delay="0.5"
-                :to="statisticsRecipes.user_count" :duration="5" easing="Power1.easeOut" />
+                :to="statisticsRecipes.user_count" :duration="2" easing="Power1.easeOut" />
             </span>
             <p>Users</p>
           </div>
@@ -98,7 +98,7 @@
           <div class="stats-item text-center w-100 h-100">
             <span>
               <number class="bold transition" ref="number2" :from="0" animationPaused :delay="0.5"
-                :to="statisticsRecipes.recipe_count" :duration="5" easing="Power1.easeOut" />
+                :to="statisticsRecipes.recipe_count" :duration="2" easing="Power1.easeOut" />
             </span>
             <p>Recipes</p>
           </div>
@@ -108,7 +108,7 @@
           <div class="stats-item text-center w-100 h-100">
             <span>
               <number class="bold transition" ref="number3" :from="0" animationPaused :delay="0.5"
-                :to="statisticsRecipes.ingredient_count" :duration="5" easing="Power1.easeOut" />
+                :to="statisticsRecipes.ingredient_count" :duration="2" easing="Power1.easeOut" />
             </span>
             <p>Ingredients</p>
           </div>
