@@ -11,10 +11,10 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import axios from 'axios'
 import VueNumber from 'vue-number-animation'
 /* import specific icons */
-import {faEnvelope,faUser,faPhone,faBuilding,faLock,faCalendar,faTag,faUtensils,faShuffle} from '@fortawesome/free-solid-svg-icons'
+import {faEnvelope,faUser,faPhone,faBuilding,faLock,faCalendar,faTag,faUtensils,faShuffle,faSearch} from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
-library.add(faEnvelope,faUser,faPhone,faBuilding,faLock,faFacebookF,faTwitter,faGoogle,faCalendar,faTag,faUtensils,faShuffle)
+library.add(faEnvelope,faUser,faPhone,faBuilding,faLock,faFacebookF,faTwitter,faGoogle,faCalendar,faTag,faUtensils,faShuffle,faSearch)
 
 
 const endpoint = process.env.VUE_APP_NODE_ENV === 'dev'
