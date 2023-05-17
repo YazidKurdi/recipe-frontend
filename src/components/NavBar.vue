@@ -7,10 +7,13 @@
           <router-link to="/" class="nav-link">Home</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/my-recipes" class="nav-link">MyRecipes</router-link>
+          <router-link to="/my-recipes" class="nav-link">My Recipes</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/recipesGPT" class="nav-link">RecipesGPT</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/import" class="nav-link">Import Recipe</router-link>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
@@ -58,8 +61,8 @@ export default {
 </script>
 
 <style scoped>
-
-.btn-login,.btn-logout {
+.btn-login,
+.btn-logout {
   letter-spacing: 1px;
   display: inline-block;
   padding: 12px 36px;
@@ -70,9 +73,11 @@ export default {
   box-shadow: 0 8px 28px rgba(206, 18, 18, 0.2);
 }
 
-#register,#myaccount {
+#register,
+#myaccount {
   padding-right: 10px;
 }
+
 a.nav-link {
 
   cursor: pointer;
