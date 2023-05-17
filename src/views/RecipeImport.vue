@@ -20,7 +20,6 @@
                 </div>
             </div>
         </div>
-        {{ importedRecipe.length }}
     </header>
 
     <transition name="fade">
@@ -64,12 +63,6 @@ export default {
                 })
             this.$store.commit('setIsLoading', false)
         }
-    },
-    props: {
-
-    },
-    mounted() {
-
     }
 }
 </script>
