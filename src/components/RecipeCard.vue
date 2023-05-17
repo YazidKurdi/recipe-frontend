@@ -98,13 +98,13 @@ export default {
     },
     computed: {
         truncatedText() {
-            if (this.recipe.description.length > 500 & !this.isExpanded) {
-                return this.recipe.description.slice(0, 500) + '...';
+            if (this.recipe.description.length > 350 & !this.isExpanded) {
+                return this.recipe.description.slice(0, 350) + '...';
             }
             return this.recipe.description;
         },
         shouldShowReadMoreButton() {
-            return this.recipe.description.length > 500;
+            return this.recipe.description.length > 350;
         },
         recipeTitle() {
             return `#${this.recipe.title}`;
