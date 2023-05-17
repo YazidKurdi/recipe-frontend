@@ -4,7 +4,7 @@ import MyRecipes from '../views/MyRecipes.vue'
 import SignUp from '../views/SignUp.vue'
 import LogIn from '../views/LogIn.vue'
 import MyAccount from '../views/MyAccount.vue'
-import SocialAuth from '../views/SocialAuth.vue'
+import RecipeImport from '../views/RecipeImport.vue'
 import RecipesGPT from '../views/RecipesGPT.vue'
 import store from '@/store'
 import toasts from '@/modules/toasts'
@@ -20,7 +20,7 @@ const routes = [
     path: '/my-recipes',
     name: 'MyRecipes',
     component: MyRecipes,
-    meta: { title: 'MyRecipes' }
+    meta: { title: 'My Recipes' }
   },
   {
     path: '/register',
@@ -47,9 +47,10 @@ const routes = [
     meta: { title: 'RecipesGPT' }
   },
   {
-    path: '/test',
-    name: 'Test',
-    component: SocialAuth
+    path: '/import',
+    name: 'import',
+    component: RecipeImport,
+    meta: {title: 'Import Recipe'}
   }
 
 ]
