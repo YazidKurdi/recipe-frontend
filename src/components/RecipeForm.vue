@@ -1,5 +1,5 @@
 <template>
-    <div class="my-recipes">
+    <div :class="view">
         <p v-if="!this.recipe.id">Enter your favorite recipes below to save them for later.</p>
         <form class="px-5">
             <div class="form">
@@ -132,6 +132,10 @@ export default {
                     ingredients: [{ id: '', name: '', unit: '', amount: '' }],
                 }
             }
+        },
+        view: {
+            type: String,
+            default: 'modal-view'
         }
     },
     computed: {
@@ -145,7 +149,7 @@ export default {
             .then((response) => {
                 this.cuisinesList = response.data
             })
-            .catch((error)=>{
+            .catch((error) => {
                 console.log(error)
             })
     }
@@ -153,68 +157,157 @@ export default {
 </script>
   
 <style scoped>
-.form-group {
-    margin-top: 20px;
+/* Modal View */
+/* ===================================================== */
+
+.modal-view {
+
+    .form-group {
+        margin-top: 20px;
+    }
+
+    .bi.bi {
+        font-size: 1.1rem;
+        color: rgb(0, 0, 0)
+    }
+
+    .px-5 {
+        margin-left: 30px !important;
+        margin-right: 40px !important;
+    }
+
+    #inputName,
+    #inputAmount,
+    #inputUnit {
+        font-size: 11px;
+        text-align: center;
+        line-height: 2;
+    }
+
+    .btn-success,
+    .btn-danger {
+        width: auto
+    }
+
+    .btn-danger {
+        background-color: #e02f10e0;
+    }
+
+    .btn-success {
+        background-color: rgb(41, 136, 41);
+    }
+
+    .col-3 button {
+        flex: 1;
+        margin: 0 5px;
+    }
+
+    .btn:hover {
+
+        background-color: var(--bs-btn-bg);
+        color: var(--bs-btn-color);
+        box-shadow: 0 0 10px #000000;
+
+    }
+
+    .btn-recipe {
+        --bs-btn-color: #fff;
+        --bs-btn-bg: var(--color-primary);
+        --bs-btn-border-color: var(--color-primary);
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: var(--color-primary);
+        --bs-btn-hover-border-color: var(--color-primary);
+        --bs-btn-focus-shadow-rgb: 49, 132, 253;
+        --bs-btn-active-color: #fff;
+        --bs-btn-active-bg: var(--color-primary);
+        --bs-btn-active-border-color: var(--color-primary);
+        --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        --bs-btn-disabled-color: #fff;
+        --bs-btn-disabled-bg: var(--color-primary);
+        --bs-btn-disabled-border-color: var(--color-primary);
+    }
+
 }
 
-.bi.bi {
-    font-size: 1.1rem;
-    color: rgb(0, 0, 0)
+/* Import View */
+/* ===================================================== */
+.import-view {
+
+    .container {
+        text-align: center;
+    }
+
+
+    .form-group {
+        margin-top: 20px;
+    }
+
+    .bi.bi {
+        font-size: 1.1rem;
+        color: rgb(0, 0, 0)
+    }
+
+    .px-5 {
+        margin-left: 30px !important;
+        margin-right: 40px !important;
+    }
+
+    #inputName,
+    #inputAmount,
+    #inputUnit {
+        font-size: 11px;
+        text-align: center;
+        line-height: 2;
+    }
+
+    .btn-success,
+    .btn-danger {
+        width: auto
+    }
+
+    .btn-danger {
+        background-color: #e02f10e0;
+    }
+
+    .btn-success {
+        background-color: rgb(41, 136, 41);
+    }
+
+    .col-3 button {
+        flex: 1;
+        margin: 0 5px;
+    }
+
+    .btn:hover {
+
+        background-color: var(--bs-btn-bg);
+        color: var(--bs-btn-color);
+        box-shadow: 0 0 10px #000000;
+
+    }
+
+    .btn-recipe {
+        margin-bottom: 20px;
+        --bs-btn-color: #fff;
+        --bs-btn-bg: var(--color-primary);
+        --bs-btn-border-color: var(--color-primary);
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: var(--color-primary);
+        --bs-btn-hover-border-color: var(--color-primary);
+        --bs-btn-focus-shadow-rgb: 49, 132, 253;
+        --bs-btn-active-color: #fff;
+        --bs-btn-active-bg: var(--color-primary);
+        --bs-btn-active-border-color: var(--color-primary);
+        --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        --bs-btn-disabled-color: #fff;
+        --bs-btn-disabled-bg: var(--color-primary);
+        --bs-btn-disabled-border-color: var(--color-primary);
+    }
+
+    #inputDescription{
+        min-height: calc(1.5em + 0.75rem + 250px);
+    }
+
 }
 
-.px-5 {
-    margin-left: 30px !important;
-    margin-right: 40px !important;
-}
-
-#inputName,
-#inputAmount,
-#inputUnit {
-    font-size: 11px;
-    text-align: center;
-    line-height: 2;
-}
-
-.btn-success,
-.btn-danger {
-    width: auto
-}
-
-.btn-danger {
-    background-color: #e02f10e0;
-}
-
-.btn-success {
-    background-color: rgb(41, 136, 41);
-}
-
-.col-3 button {
-    flex: 1;
-    margin: 0 5px;
-}
-
-.btn:hover {
-
-    background-color: var(--bs-btn-bg);
-    color: var(--bs-btn-color);
-    box-shadow: 0 0 10px #000000;
-
-}
-
-.btn-recipe {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: var(--color-primary);
-    --bs-btn-border-color: var(--color-primary);
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: var(--color-primary);
-    --bs-btn-hover-border-color: var(--color-primary);
-    --bs-btn-focus-shadow-rgb: 49, 132, 253;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: var(--color-primary);
-    --bs-btn-active-border-color: var(--color-primary);
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: var(--color-primary);
-    --bs-btn-disabled-border-color: var(--color-primary);
-}
 </style>
