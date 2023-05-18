@@ -13,7 +13,7 @@
                 <div class="input-group mt-2">
                     <input v-model="url" type="text" placeholder="https://..."
                         class="form-control form-control-lg form-control-borderless form-control-search form-control"
-                        id="__BVID__11" @keyup="importRecipe">
+                        id="__BVID__11" @keyup.enter="importRecipe">
 
                     <button type="button" class="btn btn-outline-warning btn-dark"
                         @click="importRecipe"><i><font-awesome-icon icon="fas fa-search fa-fw" /></i></button>
