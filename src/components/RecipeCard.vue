@@ -6,16 +6,16 @@
         </a>
         <div class="postcard__text text-dark">
             <div class="d-flex align-items-center justify-content-between">
-                <h2><a>{{ recipe.title }}</a></h2>
-                <h1 v-if="tag === 'generate'" class="bi bi-shuffle card-btn" @click="handleButton"> Chef AI-Assitant Recipe
-                    Generation </h1>
+                <h4><a>{{ recipe.title }}</a></h4>
+                <h4 v-if="tag === 'generate'" class="bi bi-shuffle card-btn" @click="handleButton"> Chef AI-Assitant Recipe
+                    Generation </h4>
                 <div v-else class="d-flex align-items-center justify-content-between">
-                    <h1 href="#" class="bi bi-plus-circle-fill card-btn" data-bs-toggle="modal"
-                        :data-bs-target="'#id-' + recipe.id"> Edit </h1>
-                    <h1 v-if="tag === 'edit' && recipe.id" href="#" @click="incrementClickCount"
+                    <h4 href="#" class="bi bi-plus-circle-fill card-btn" data-bs-toggle="modal"
+                        :data-bs-target="'#id-' + recipe.id"> Edit </h4>
+                    <h4 v-if="tag === 'edit' && recipe.id" href="#" @click="incrementClickCount"
                         @dblclick="deleteRecipe(recipe)" class="bi bi-trash ms-4 card-btn"
                         :class="{ 'delete-one-count': clickCount == 1 }">Delete
-                    </h1>
+                    </h4>
                 </div>
                 <ModalPop :recipe="recipe" :id="recipe.id"> Edit Your Recipe!
                 </ModalPop>
@@ -160,7 +160,7 @@ i {
         color: inherit;
     }
 
-    h1 {
+    h4 {
         margin-bottom: 0.5rem;
         font-weight: 3;
         line-height: 1.2;
