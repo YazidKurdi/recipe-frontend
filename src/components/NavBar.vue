@@ -18,9 +18,9 @@
       </ul>
       <ul class="navbar-nav ms-auto">
         <template v-if="this.$store.state.isAuthenticated">
-          <li class="nav-item" id="myaccount">
+          <!-- <li class="nav-item" id="myaccount">
             <router-link to="/my-account" class="nav-link">My Account</router-link>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a @click='logout' class="nav-link btn-logout">Logout</a>
           </li>
