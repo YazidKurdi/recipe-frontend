@@ -83,7 +83,7 @@ export default {
             this.$store.commit('setIsLoading', false)
         },
         usage() {
-            axios.get(`/api/usage/`)
+            axios.get(`/api/gpt-usage/`)
                 .then((response) => {
                     this.remainingAPI = response.data
                 })
