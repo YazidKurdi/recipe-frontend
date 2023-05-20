@@ -10,7 +10,7 @@
                         elevate your cooking game – click now to get started!
                     </p>
 
-                    <!-- <p> Available credits for today: {{  gptCounter }}</p> -->
+                    <p> Available credits for today: {{  remainingAPI }}</p>
                 </div>
             </div>
         </div>
@@ -42,7 +42,8 @@ export default {
         return {
             UserRecipes: [],
             selectedRecipe: [],
-            responseRecipe: null
+            responseRecipe: null,
+            remainingAPI:null,
         }
     },
     components: {
@@ -76,8 +77,21 @@ export default {
                         toasts.toastError("Whoops, ChefGPT is busy preparing another meal, try again later!");
                     }
                 })
+            
+                await this.usage()
 
             this.$store.commit('setIsLoading', false)
+        },
+        usage() {
+            axios.get(`/api/usage/`)
+                .then((response) => {
+                    this.remainingAPI = response.data
+                })
+                .catch((error) => {
+                    if(error.response && error.response.status === 429){
+                        this.remainingAPI = 0
+                    }
+                })
         }
     },
     mounted() {
@@ -90,6 +104,10 @@ export default {
             .catch(error => {
                 console.log(error)
             })
+
+    },
+    created() {
+        this.usage()
     }
 
 }
